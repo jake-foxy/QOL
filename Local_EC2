@@ -7,11 +7,11 @@ aws_ip=$(aws ec2 describe-instances | grep -B 27 Jake | grep PublicDnsName | gre
 
 # Log into Amazon Ec2 (once launched!)
 # Change PEM to your PEM path, and Machine to whatever, Ubuntu in my case.
-alias logAmazon='ssh -i "PEM" MACHINE@"$aws_ip"'
+alias logAmazon="ssh -i "PEM" MACHINE@"$aws_ip""
 
 # Log into Jupyter Notebook on EC2
 # Change PEM to your PEM path, "PORT / IP" to relevant field, and Machine to whatever, Ubuntu in my case.
-alias logJup='ssh -i "PEM" -L "PORT / IP" MACHINE@$"aws_ip"'
+alias logJup="ssh -i "PEM" -L "PORT:HOST:HOSTPORT" MACHINE@"$aws_ip""
 
 # Helpful miscellaneous
 alias grep='grep --color=auto'
