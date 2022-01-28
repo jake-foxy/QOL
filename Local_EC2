@@ -58,3 +58,6 @@ screen -ls
 echo -e "\033[1;31mConnect to Jupyter with"
 echo -e "\033[0;34m"IP HERE"\033[0m"
 
+convert_notebook(){
+jupyter nbconvert --to script $1
+}
