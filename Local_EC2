@@ -45,16 +45,16 @@ alias condaenv='conda env list'
 # .bashrc
 
 # Prints current Conda environment on Ec2
-echo -e "\e[1;31mConda environment is\033[0;34m"
+echo -e "\033[1;31mConda environment is\033[0;34m"
 
 conda info --envs | grep -F "*"
 
 # Prints current screens, opened with jup
-echo -e "\e[1;31mActive Screens\033[0;34m"
+echo -e "\033[1;31mActive Screens\033[0;34m"
 
 screen -ls
 
 # URL Reminder for Jupyter
-echo -e "\e[1;31mConnect to Jupyter with"
+echo -e "\033[1;31mConnect to Jupyter with"
 echo -e "\033[0;34m"IP HERE"\033[0m"
 
