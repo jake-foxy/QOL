@@ -1,0 +1,54 @@
+
+# LOCAL MACHINE Aliases
+
+# This grabs the IP of your EC2 instance. Just change Jake to whatever keywork in your name
+aws_ip=$(aws ec2 describe-instances | grep -B 27 Jake | grep PublicDnsName | grep -o '".*"' | sed 's/"//g' | awk  -F ' ' '{print $2}')
+# Log into Amazon Ec2 (once launched!)
+alias logAmazon='ssh -i "PEM" MACHINE@"$aws_ip"'
+
+# Log into Jupyter Notebook on EC2
+alias logJup='ssh -i "PEM" -L 5511:127.0.0.1:8888 MACHINE@$"aws_ip"'
+
+
+#add color to the grep's automatically
+alias grep='grep --color=auto'
+alias fgrep='fgrep --color=auto'
+alias egrep='egrep --color=auto'
+
+alias fileNum='ls -1 | wc -l'
+alias dirSize='du -sh ./*/'
+alias fileSize='ls -lSh | grep -v '^d''
+alias freeSpace='df -kh "$PWD"'
+alias fcount='ls | wc -l'
+alias l='tree -C -L 1 -D -t -s -h'
+alias ll='tree -C -L 1 -D -t -s -h -a -p -u -g'
+alias ld='tree -d -C -L 2 -D -t'
+alias lf='tree -C -L 2 -D -t'
+
+
+# EC2 
+
+# Aliases
+
+alias jup='screen -d -S Jupyter_Notebook -m jupyter notebook --no-browser --port=8888'
+alias gbranch='git rev-parse --abbrev-ref HEAD'
+alias condaenv='conda env list'
+
+# EC2 
+
+# .bashrc
+
+# Prints current Conda environment on Ec2
+echo -e "\e[1;31mConda environment is\033[0;34m"
+
+conda info --envs | grep -F "*"
+
+# Prints current screens, opened with jup
+echo -e "\e[1;31mActive Screens\033[0;34m"
+
+screen -ls
+
+# URL Reminder for Jupyter
+echo -e "\e[1;31mConnect to Jupyter with"
+echo -e "\033[0;34m"IP HERE"\033[0m"
+
