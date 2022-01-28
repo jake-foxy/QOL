@@ -1,7 +1,7 @@
 
 # LOCAL MACHINE Aliases
 
-# This grabs the IP of your EC2 instance. Just change Jake to whatever keywork in your name
+# This grabs the IP of your EC2 instance. Just change Jake to whatever keywork=f in your Ec2 name
 aws_ip=$(aws ec2 describe-instances | grep -B 27 Jake | grep PublicDnsName | grep -o '".*"' | sed 's/"//g' | awk  -F ' ' '{print $2}')
 # Log into Amazon Ec2 (once launched!)
 alias logAmazon='ssh -i "PEM" MACHINE@"$aws_ip"'
@@ -30,7 +30,11 @@ alias lf='tree -C -L 2 -D -t'
 
 # Aliases
 
+# This will launch a jupyter notebook with screen, so you can quit the active ssh session but the notebook remains open
+# You should be able to run longer scripts with this, and not worry about the active ssh session to keep them running
+
 alias jup='screen -d -S Jupyter_Notebook -m jupyter notebook --no-browser --port=8888'
+
 alias gbranch='git rev-parse --abbrev-ref HEAD'
 alias condaenv='conda env list'
 
