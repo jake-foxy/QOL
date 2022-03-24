@@ -26,7 +26,7 @@ alias l='tree -C -L 1 -D -t -s -h'
 alias ll='tree -C -L 1 -D -t -s -h -a -p -u -g'
 alias ld='tree -d -C -L 2 -D -t'
 alias lf='tree -C -L 2 -D -t'
-
+alias rm_space="find . -depth -name '* *' -execdir bash -c 'for i; do mv "$i" "${i// /_}"; done' _ {} +"
 
 # EC2 
 
